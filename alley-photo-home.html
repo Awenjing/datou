@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AlleyPhoto - 首页</title>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* 顶部导航栏 */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .nav-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .nav-actions {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .nav-icon {
+            font-size: 20px;
+            color: #666;
+        }
+        
+        /* 主内容区域 */
+        .main-content {
+            margin-top: 50px;
+            padding-bottom: 60px;
+        }
+        
+        /* 轮播图 */
+        .swiper-container {
+            width: 100%;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .swiper-slide {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .swiper-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .swiper-pagination {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+        
+        .swiper-dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.5);
+            margin: 0 3px;
+        }
+        
+        .swiper-dot.active {
+            background-color: #ffffff;
+        }
+        
+        /* 分类导航 */
+        .category-nav {
+            background-color: #ffffff;
+            padding: 20px 0;
+            margin-bottom: 10px;
+        }
+        
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            padding: 0 15px;
+        }
+        
+        .category-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .category-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+        
+        .category-icon.square {
+            background-color: #e3f2fd;
+        }
+        
+        .category-icon.circle {
+            background-color: #f3e5f5;
+            border-radius: 50%;
+        }
+        
+        .category-icon.rectangle {
+            background-color: #fff3e0;
+        }
+        
+        .category-icon.triangle {
+            background-color: #e8f5e8;
+        }
+        
+        .category-name {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        /* 精选作品 */
+        .featured-section {
+            background-color: #ffffff;
+            margin-bottom: 10px;
+            padding: 15px;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .section-more {
+            font-size: 12px;
+            color: #999;
+        }
+        
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        
+        .featured-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .featured-img {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+        }
+        
+        .featured-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+            padding: 10px;
+            color: #ffffff;
+        }
+        
+        .featured-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+        
+        .featured-desc {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+        
+        /* 推荐摄影师 */
+        .photographers-section {
+            background-color: #ffffff;
+            margin-bottom: 10px;
+            padding: 15px;
+        }
+        
+        .photographer-list {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+        
+        .photographer-item {
+            flex: 0 0 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .photographer-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 8px;
+            border: 2px solid #f0f0f0;
+        }
+        
+        .photographer-name {
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+        }
+        
+        /* 底部导航栏 */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .nav-tab {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #999;
+        }
+        
+        .nav-tab.active {
+            color: #409EFF;
+        }
+        
+        .nav-tab-icon {
+            font-size: 20px;
+            margin-bottom: 2px;
+        }
+        
+        /* 响应式设计 */
+        @media (min-width: 768px) {
+            .swiper-container {
+                height: 300px;
+            }
+            
+            .category-grid {
+                grid-template-columns: repeat(8, 1fr);
+            }
+            
+            .featured-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        /* 模拟图标 */
+        .icon {
+            width: 24px;
+            height: 24px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        
+        .icon-home {
+            background-image: url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=simple%20home%20icon%2C%20blue%20color%2C%20minimal%20design&image_size=square');
+        }
+        
+        .icon-explore {
+            background-image: url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=simple%20explore%20icon%2C%20purple%20color%2C%20minimal%20design&image_size=square');
+        }
+        
+        .icon-shoot {
+            background-image: url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=simple%20camera%20icon%2C%20orange%20color%2C%20minimal%20design&image_size=square');
+        }
+        
+        .icon-message {
+            background-image: url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=simple%20message%20icon%2C%20green%20color%2C%20minimal%20design&image_size=square');
+        }
+        
+        .icon-me {
+            background-image: url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=simple%20user%20icon%2C%20gray%20color%2C%20minimal%20design&image_size=square');
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <div class="top-nav">
+        <div class="nav-title">AlleyPhoto</div>
+        <div class="nav-actions">
+            <div class="nav-icon">🔍</div>
+            <div class="nav-icon">💬</div>
+        </div>
+    </div>
+    
+    <!-- 主内容区域 -->
+    <div class="main-content">
+        <!-- 轮播图 -->
+        <div class="swiper-container">
+            <div class="swiper-slide">
+                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=cinematic%20photography%20banner%2C%20professional%20photo%20studio%20promotion&image_size=landscape_16_9" alt="轮播图1" class="swiper-img">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=fashion%20photography%20banner%2C%20modern%20style&image_size=landscape_16_9" alt="轮播图2" class="swiper-img">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=portrait%20photography%20banner%2C%20artistic%20style&image_size=landscape_16_9" alt="轮播图3" class="swiper-img">
+            </div>
+            <div class="swiper-pagination">
+                <span class="swiper-dot active"></span>
+                <span class="swiper-dot"></span>
+                <span class="swiper-dot"></span>
+            </div>
+        </div>
+        
+        <!-- 分类导航 -->
+        <div class="category-nav">
+            <div class="category-grid">
+                <div class="category-item">
+                    <div class="category-icon square">
+                        <div class="icon icon-home"></div>
+                    </div>
+                    <div class="category-name">街拍</div>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon circle">
+                        <div class="icon icon-explore"></div>
+                    </div>
+                    <div class="category-name">人像</div>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon rectangle">
+                        <div class="icon icon-shoot"></div>
+                    </div>
+                    <div class="category-name">风景</div>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon triangle">
+                        <div class="icon icon-message"></div>
+                    </div>
+                    <div class="category-name">美食</div>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon square">
+                        <div class="icon icon-home"></div>
+                    </div>
+                    <div class="category-name">建筑</div>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon circle">
+                        <div class="icon icon-explore"></div>
+                    </div>
+                    <div class="category-name">夜景</div>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon rectangle">
+                        <div class="icon icon-shoot"></div>
+                    </div>
+                    <div class="category-name">创意</div>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon triangle">
+                        <div class="icon icon-message"></div>
+                    </div>
+                    <div class="category-name">更多</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 精选作品 -->
+        <div class="featured-section">
+            <div class="section-header">
+                <div class="section-title">精选作品</div>
+                <div class="section-more">查看更多 ></div>
+            </div>
+            <div class="featured-grid">
+                <div class="featured-item">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=street%20photography%20example%2C%20cinematic%20style&image_size=portrait_4_3" alt="作品1" class="featured-img">
+                    <div class="featured-info">
+                        <div class="featured-title">城市街头</div>
+                        <div class="featured-desc">记录城市的日常</div>
+                    </div>
+                </div>
+                <div class="featured-item">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=portrait%20photography%20example%2C%20artistic%20style&image_size=portrait_4_3" alt="作品2" class="featured-img">
+                    <div class="featured-info">
+                        <div class="featured-title">人像写真</div>
+                        <div class="featured-desc">捕捉最美瞬间</div>
+                    </div>
+                </div>
+                <div class="featured-item">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=landscape%20photography%20example%2C%20natural%20beauty&image_size=portrait_4_3" alt="作品3" class="featured-img">
+                    <div class="featured-info">
+                        <div class="featured-title">自然风光</div>
+                        <div class="featured-desc">大自然的魅力</div>
+                    </div>
+                </div>
+                <div class="featured-item">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=food%20photography%20example%2C%20delicious%20presentation&image_size=portrait_4_3" alt="作品4" class="featured-img">
+                    <div class="featured-info">
+                        <div class="featured-title">美食摄影</div>
+                        <div class="featured-desc">舌尖上的艺术</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 推荐摄影师 -->
+        <div class="photographers-section">
+            <div class="section-header">
+                <div class="section-title">推荐摄影师</div>
+                <div class="section-more">查看更多 ></div>
+            </div>
+            <div class="photographer-list">
+                <div class="photographer-item">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20photographer%20avatar%2C%20male%2C%20creative%20style&image_size=square" alt="摄影师1" class="photographer-avatar">
+                    <div class="photographer-name">张摄影师</div>
+                </div>
+                <div class="photographer-item">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20photographer%20avatar%2C%20female%2C%20artistic%20style&image_size=square" alt="摄影师2" class="photographer-avatar">
+                    <div class="photographer-name">李摄影师</div>
+                </div>
+                <div class="photographer-item">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20photographer%20avatar%2C%20male%2C%20modern%20style&image_size=square" alt="摄影师3" class="photographer-avatar">
+                    <div class="photographer-name">王摄影师</div>
+                </div>
+                <div class="photographer-item">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20photographer%20avatar%2C%20female%2C%20fashion%20style&image_size=square" alt="摄影师4" class="photographer-avatar">
+                    <div class="photographer-name">刘摄影师</div>
+                </div>
+                <div class="photographer-item">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20photographer%20avatar%2C%20male%2C%20street%20style&image_size=square" alt="摄影师5" class="photographer-avatar">
+                    <div class="photographer-name">陈摄影师</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 底部导航栏 -->
+    <div class="bottom-nav">
+        <div class="nav-tab active">
+            <div class="nav-tab-icon icon-home"></div>
+            <div class="nav-tab-name">首页</div>
+        </div>
+        <div class="nav-tab">
+            <div class="nav-tab-icon icon-explore"></div>
+            <div class="nav-tab-name">发现</div>
+        </div>
+        <div class="nav-tab">
+            <div class="nav-tab-icon icon-shoot">
+                <div style="width: 40px; height: 40px; background-color: #409EFF; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: -15px;">
+                    <span style="color: white; font-size: 20px;">+</span>
+                </div>
+            </div>
+            <div class="nav-tab-name">拍摄</div>
+        </div>
+        <div class="nav-tab">
+            <div class="nav-tab-icon icon-message"></div>
+            <div class="nav-tab-name">消息</div>
+        </div>
+        <div class="nav-tab">
+            <div class="nav-tab-icon icon-me"></div>
+            <div class="nav-tab-name">我的</div>
+        </div>
+    </div>
+    
+    <script>
+        // 轮播图模拟
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.swiper-slide');
+        const dots = document.querySelectorAll('.swiper-dot');
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlide();
+        }
+        
+        function updateSlide() {
+            slides.forEach((slide, index) => {
+                slide.style.display = index === currentSlide ? 'block' : 'none';
+            });
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+        
+        // 初始化轮播图
+        slides.forEach((slide, index) => {
+            if (index !== 0) {
+                slide.style.display = 'none';
+            }
+        });
+        
+        // 自动轮播
+        setInterval(nextSlide, 3000);
+    </script>
+</body>
+</html>
