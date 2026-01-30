@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大头工作室 - 摄影作品展示</title>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #1a1a2e;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* 头部区域 */
+        header {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(26,26,46,0.95) 0%, rgba(45,45,80,0.8) 100%);
+            overflow: hidden;
+        }
+        
+        .header-content {
+            text-align: center;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+        }
+        
+        .header-title {
+            font-size: 5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 30px rgba(255,165,0,0.4), 0 0 60px rgba(255,165,0,0.2);
+            border: 3px solid #ff6b6b;
+            padding: 1.5rem 3rem;
+            display: inline-block;
+            position: relative;
+            background: rgba(26,26,46,0.7);
+        }
+        
+        .header-subtitle {
+            font-size: 1.5rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            opacity: 0.8;
+            margin-bottom: 3rem;
+        }
+        
+        .header-decoration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=cinematic%20photography%20studio%20background%2C%20dark%20moody%20atmosphere%2C%20film%20poster%20style&image_size=landscape_16_9');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+            z-index: 1;
+        }
+        
+        /* 作品展示区域 */
+        .portfolio {
+            padding: 5rem 2rem;
+            background-color: #16213e;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            margin-bottom: 4rem;
+            text-shadow: 0 0 20px rgba(255,107,107,0.3), 0 0 40px rgba(255,107,107,0.1);
+            position: relative;
+            color: #ffffff;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: #ff6b6b;
+            margin: 1rem auto 0;
+        }
+        
+        .location-section {
+            margin-bottom: 6rem;
+        }
+        
+        .location-title {
+            font-size: 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+            color: #ffffff;
+        }
+        
+        .location-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 2px;
+            background: #ff6b6b;
+            margin: 0.5rem auto 0;
+        }
+        
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .work-card {
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #3a3a5e;
+            background: rgba(26,26,46,0.8);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .work-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            border-color: #ff6b6b;
+        }
+        
+        .work-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .work-card:hover .work-image {
+            transform: scale(1.1);
+        }
+        
+        .work-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+            padding: 2rem 1rem 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .work-card:hover .work-overlay {
+            transform: translateY(0);
+        }
+        
+        .work-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* 底部区域 */
+        footer {
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(26,26,46,0.95) 0%, rgba(45,45,80,0.9) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer-content {
+            text-align: center;
+            z-index: 2;
+            max-width: 600px;
+            padding: 2rem;
+        }
+        
+        .footer-text {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 20px rgba(255,107,107,0.4), 0 0 40px rgba(255,107,107,0.2);
+            position: relative;
+            display: inline-block;
+            color: #ffffff;
+        }
+        
+        .footer-text::before,
+        .footer-text::after {
+            content: '✦';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            opacity: 0.7;
+            color: #ff6b6b;
+        }
+        
+        .footer-text::before {
+            left: -3rem;
+        }
+        
+        .footer-text::after {
+            right: -3rem;
+        }
+        
+        .footer-decoration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=romantic%20film%20ending%20scene%2C%20cinematic%20lighting%2C%20soft%20focus&image_size=landscape_16_9');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 3rem;
+                padding: 1rem 2rem;
+                letter-spacing: 5px;
+            }
+            
+            .header-subtitle {
+                font-size: 1.2rem;
+                letter-spacing: 3px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+                letter-spacing: 5px;
+            }
+            
+            .location-title {
+                font-size: 1.5rem;
+                letter-spacing: 3px;
+            }
+            
+            .works-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+            
+            .work-image {
+                height: 300px;
+            }
+            
+            .footer-text {
+                font-size: 1.8rem;
+                letter-spacing: 5px;
+            }
+            
+            .footer-text::before,
+            .footer-text::after {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header-title {
+                font-size: 2rem;
+                padding: 0.8rem 1.5rem;
+                letter-spacing: 3px;
+            }
+            
+            .header-subtitle {
+                font-size: 1rem;
+                letter-spacing: 2px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+                letter-spacing: 3px;
+            }
+            
+            .location-title {
+                font-size: 1.3rem;
+                letter-spacing: 2px;
+            }
+            
+            .works-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .work-image {
+                height: 250px;
+            }
+            
+            .footer-text {
+                font-size: 1.5rem;
+                letter-spacing: 3px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部区域 -->
+    <header>
+        <div class="header-decoration"></div>
+        <div class="header-content">
+            <h1 class="header-title">大头工作室</h1>
+            <p class="header-subtitle">专业摄影作品展示</p>
+        </div>
+    </header>
+    
+    <!-- 作品展示区域 -->
+    <section class="portfolio">
+        <h2 class="section-title">精选作品</h2>
+        
+        <!-- 草地场景 -->
+        <div class="location-section">
+            <h3 class="location-title">草地</h3>
+            <div class="works-grid">
+                <div class="work-card">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=cinematic%20photography%20on%20grassland%2C%20film%20poster%20style%2C%20beautiful%20composition&image_size=portrait_4_3" alt="草地摄影作品1" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">草地系列 1</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=cinematic%20photography%20on%20grassland%2C%20film%20poster%20style%2C%20romantic%20mood&image_size=portrait_4_3" alt="草地摄影作品2" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">草地系列 2</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=cinematic%20photography%20on%20grassland%2C%20film%20poster%20style%2C%20dramatic%20lighting&image_size=portrait_4_3" alt="草地摄影作品3" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">草地系列 3</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 礼堂场景 -->
+        <div class="location-section">
+            <h3 class="location-title">礼堂</h3>
+            <div class="works-grid">
+                <div class="work-card">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=cinematic%20photography%20in%20auditorium%2C%20film%20poster%20style%2C%20elegant%20interior&image_size=portrait_4_3" alt="礼堂摄影作品1" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">礼堂系列 1</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=cinematic%20photography%20in%20auditorium%2C%20film%20poster%20style%2C%20grand%20ceremony&image_size=portrait_4_3" alt="礼堂摄影作品2" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">礼堂系列 2</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=cinematic%20photography%20in%20auditorium%2C%20film%20poster%20style%2C%20atmospheric%20lighting&image_size=portrait_4_3" alt="礼堂摄影作品3" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">礼堂系列 3</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 酒店场景 -->
+        <div class="location-section">
+            <h3 class="location-title">酒店</h3>
+            <div class="works-grid">
+                <div class="work-card">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=cinematic%20photography%20in%20luxury%20hotel%2C%20film%20poster%20style%2C%20elegant%20room&image_size=portrait_4_3" alt="酒店摄影作品1" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">酒店系列 1</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=cinematic%20photography%20in%20luxury%20hotel%2C%20film%20poster%20style%2C%20sophisticated%20lobby&image_size=portrait_4_3" alt="酒店摄影作品2" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">酒店系列 2</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=cinematic%20photography%20in%20luxury%20hotel%2C%20film%20poster%20style%2C%20romantic%20setting&image_size=portrait_4_3" alt="酒店摄影作品3" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">酒店系列 3</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 底部区域 -->
+    <footer>
+        <div class="footer-decoration"></div>
+        <div class="footer-content">
+            <p class="footer-text">感谢你我相遇</p>
+        </div>
+    </footer>
+</body>
+</html>
