@@ -182,9 +182,43 @@
             margin-bottom: 0.5rem;
         }
         
+        /* 横向滚动样式 */
+        .works-grid.horizontal-scroll {
+            display: flex;
+            overflow-x: auto;
+            gap: 1.5rem;
+            padding: 1rem 0;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(136, 136, 136, 0.5) transparent;
+        }
+        
+        .works-grid.horizontal-scroll::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .works-grid.horizontal-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        
+        .works-grid.horizontal-scroll::-webkit-scrollbar-thumb {
+            background-color: rgba(136, 136, 136, 0.5);
+            border-radius: 4px;
+        }
+        
+        .works-grid.horizontal-scroll .work-card {
+            flex: 0 0 300px;
+        }
+        
+        .works-grid.horizontal-scroll .work-image {
+            display: block;
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        
         /* 底部区域 */
         footer {
-            min-height: 50vh;
+            height: 90px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -205,7 +239,7 @@
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 8px;
-            margin-bottom: 2rem;
+            /* margin-bottom: 2rem; */
             text-shadow: 0 0 20px rgba(255,107,107,0.4), 0 0 40px rgba(255,107,107,0.2);
             position: relative;
             display: inline-block;
@@ -237,9 +271,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=romantic%20film%20ending%20scene%2C%20cinematic%20lighting%2C%20soft%20focus&image_size=landscape_16_9');
-            background-size: cover;
-            background-position: center;
+            /* background-image: url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=romantic%20film%20ending%20scene%2C%20cinematic%20lighting%2C%20soft%20focus&image_size=landscape_16_9'); */
+            /* background-size: cover; */
+            /* background-position: center; */
             opacity: 0.1;
             z-index: 1;
         }
@@ -338,76 +372,401 @@
     <section class="portfolio">
         <h2 class="section-title">精选作品</h2>
         
-        <!-- 草地场景 -->
+        <!-- 草坪仪式 -->
         <div class="location-section">
-            <h3 class="location-title">草地</h3>
-            <div class="works-grid">
+            <h3 class="location-title">草坪仪式</h3>
+            <div class="works-grid horizontal-scroll">
                 <div class="work-card">
-                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=cinematic%20photography%20on%20grassland%2C%20film%20poster%20style%2C%20beautiful%20composition&image_size=portrait_4_3" alt="草地摄影作品1" class="work-image">
+                    <img src="./img/草坪仪式/TOTO2803.jpeg" alt="草坪仪式1" class="work-image">
                     <div class="work-overlay">
-                        <h4 class="work-title">草地系列 1</h4>
+                        <h4 class="work-title">草坪仪式 1</h4>
                     </div>
                 </div>
                 <div class="work-card">
-                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=cinematic%20photography%20on%20grassland%2C%20film%20poster%20style%2C%20romantic%20mood&image_size=portrait_4_3" alt="草地摄影作品2" class="work-image">
+                    <img src="./img/草坪仪式/TOTO2827.jpeg" alt="草坪仪式2" class="work-image">
                     <div class="work-overlay">
-                        <h4 class="work-title">草地系列 2</h4>
+                        <h4 class="work-title">草坪仪式 2</h4>
                     </div>
                 </div>
                 <div class="work-card">
-                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=cinematic%20photography%20on%20grassland%2C%20film%20poster%20style%2C%20dramatic%20lighting&image_size=portrait_4_3" alt="草地摄影作品3" class="work-image">
+                    <img src="./img/草坪仪式/TOTO2958.jpeg" alt="草坪仪式3" class="work-image">
                     <div class="work-overlay">
-                        <h4 class="work-title">草地系列 3</h4>
+                        <h4 class="work-title">草坪仪式 3</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/草坪仪式/TOTO2973.jpeg" alt="草坪仪式4" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">草坪仪式 4</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/草坪仪式/TOTO2979.jpeg" alt="草坪仪式5" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">草坪仪式 5</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/草坪仪式/TOTO3000.jpeg" alt="草坪仪式6" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">草坪仪式 6</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/草坪仪式/TOTO3043.jpeg" alt="草坪仪式7" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">草坪仪式 7</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/草坪仪式/TOTO3062.jpeg" alt="草坪仪式8" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">草坪仪式 8</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/草坪仪式/TOTO3087.jpeg" alt="草坪仪式9" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">草坪仪式 9</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/草坪仪式/TOTO3186_(2).jpeg" alt="草坪仪式10" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">草坪仪式 10</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/草坪仪式/TOTO3236.jpeg" alt="草坪仪式11" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">草坪仪式 11</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/草坪仪式/TOTO3445.jpeg" alt="草坪仪式12" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">草坪仪式 12</h4>
                     </div>
                 </div>
             </div>
         </div>
         
-        <!-- 礼堂场景 -->
+        <!-- 酒店现场 -->
         <div class="location-section">
-            <h3 class="location-title">礼堂</h3>
-            <div class="works-grid">
+            <h3 class="location-title">酒店现场</h3>
+            <div class="works-grid horizontal-scroll">
                 <div class="work-card">
-                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=cinematic%20photography%20in%20auditorium%2C%20film%20poster%20style%2C%20elegant%20interior&image_size=portrait_4_3" alt="礼堂摄影作品1" class="work-image">
+                    <img src="./img/酒店现场/TOTO0417.jpg" alt="酒店现场1" class="work-image">
                     <div class="work-overlay">
-                        <h4 class="work-title">礼堂系列 1</h4>
+                        <h4 class="work-title">酒店现场 1</h4>
                     </div>
                 </div>
                 <div class="work-card">
-                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=cinematic%20photography%20in%20auditorium%2C%20film%20poster%20style%2C%20grand%20ceremony&image_size=portrait_4_3" alt="礼堂摄影作品2" class="work-image">
+                    <img src="./img/酒店现场/TOTO0495.jpg" alt="酒店现场2" class="work-image">
                     <div class="work-overlay">
-                        <h4 class="work-title">礼堂系列 2</h4>
+                        <h4 class="work-title">酒店现场 2</h4>
                     </div>
                 </div>
                 <div class="work-card">
-                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=cinematic%20photography%20in%20auditorium%2C%20film%20poster%20style%2C%20atmospheric%20lighting&image_size=portrait_4_3" alt="礼堂摄影作品3" class="work-image">
+                    <img src="./img/酒店现场/TOTO0522.jpg" alt="酒店现场3" class="work-image">
                     <div class="work-overlay">
-                        <h4 class="work-title">礼堂系列 3</h4>
+                        <h4 class="work-title">酒店现场 3</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/酒店现场/TOTO0530.jpg" alt="酒店现场4" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">酒店现场 4</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/酒店现场/TOTO0559.jpg" alt="酒店现场5" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">酒店现场 5</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/酒店现场/TOTO0562.jpg" alt="酒店现场6" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">酒店现场 6</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/酒店现场/TOTO0573.jpg" alt="酒店现场7" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">酒店现场 7</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/酒店现场/TOTO0596.jpg" alt="酒店现场8" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">酒店现场 8</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/酒店现场/TOTO0608.jpg" alt="酒店现场9" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">酒店现场 9</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/酒店现场/TOTO0721.jpg" alt="酒店现场10" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">酒店现场 10</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/酒店现场/TOTO0792.jpg" alt="酒店现场11" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">酒店现场 11</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/酒店现场/TOTO0808.jpg" alt="酒店现场12" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">酒店现场 12</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/酒店现场/TOTO0857.jpg" alt="酒店现场13" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">酒店现场 13</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/酒店现场/TOTO0880.jpg" alt="酒店现场14" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">酒店现场 14</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/酒店现场/TOTO0895.jpg" alt="酒店现场15" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">酒店现场 15</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/酒店现场/_13A8559.jpg" alt="酒店现场16" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">酒店现场 16</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/酒店现场/_13A8575.jpg" alt="酒店现场17" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">酒店现场 17</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/酒店现场/_13A8613.jpg" alt="酒店现场18" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">酒店现场 18</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/酒店现场/_13A8622.jpg" alt="酒店现场19" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">酒店现场 19</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/酒店现场/_13A8631.jpg" alt="酒店现场20" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">酒店现场 20</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/酒店现场/_13A8664.jpg" alt="酒店现场21" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">酒店现场 21</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/酒店现场/_13A8687.jpg" alt="酒店现场22" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">酒店现场 22</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/酒店现场/_13A8790.jpg" alt="酒店现场23" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">酒店现场 23</h4>
                     </div>
                 </div>
             </div>
         </div>
         
-        <!-- 酒店场景 -->
+        <!-- 室内拍摄 -->
         <div class="location-section">
-            <h3 class="location-title">酒店</h3>
-            <div class="works-grid">
+            <h3 class="location-title">室内拍摄</h3>
+            <div class="works-grid horizontal-scroll">
                 <div class="work-card">
-                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=cinematic%20photography%20in%20luxury%20hotel%2C%20film%20poster%20style%2C%20elegant%20room&image_size=portrait_4_3" alt="酒店摄影作品1" class="work-image">
+                    <img src="./img/室内拍摄/WechatIMG9016.jpeg" alt="室内拍摄1" class="work-image">
                     <div class="work-overlay">
-                        <h4 class="work-title">酒店系列 1</h4>
+                        <h4 class="work-title">室内拍摄 1</h4>
                     </div>
                 </div>
                 <div class="work-card">
-                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=cinematic%20photography%20in%20luxury%20hotel%2C%20film%20poster%20style%2C%20sophisticated%20lobby&image_size=portrait_4_3" alt="酒店摄影作品2" class="work-image">
+                    <img src="./img/室内拍摄/WechatIMG9017.jpeg" alt="室内拍摄2" class="work-image">
                     <div class="work-overlay">
-                        <h4 class="work-title">酒店系列 2</h4>
+                        <h4 class="work-title">室内拍摄 2</h4>
                     </div>
                 </div>
                 <div class="work-card">
-                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=cinematic%20photography%20in%20luxury%20hotel%2C%20film%20poster%20style%2C%20romantic%20setting&image_size=portrait_4_3" alt="酒店摄影作品3" class="work-image">
+                    <img src="./img/室内拍摄/WechatIMG9019.jpeg" alt="室内拍摄3" class="work-image">
                     <div class="work-overlay">
-                        <h4 class="work-title">酒店系列 3</h4>
+                        <h4 class="work-title">室内拍摄 3</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/室内拍摄/WechatIMG9020.jpeg" alt="室内拍摄4" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">室内拍摄 4</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/室内拍摄/WechatIMG9021.jpeg" alt="室内拍摄5" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">室内拍摄 5</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/室内拍摄/WechatIMG9022.jpeg" alt="室内拍摄6" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">室内拍摄 6</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/室内拍摄/WechatIMG9026.jpeg" alt="室内拍摄7" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">室内拍摄 7</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/室内拍摄/WechatIMG9028.jpeg" alt="室内拍摄8" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">室内拍摄 8</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/室内拍摄/WechatIMG9029.jpeg" alt="室内拍摄9" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">室内拍摄 9</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/室内拍摄/WechatIMG9033.jpeg" alt="室内拍摄10" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">室内拍摄 10</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 外景街拍 -->
+        <div class="location-section">
+            <h3 class="location-title">外景街拍</h3>
+            <div class="works-grid horizontal-scroll">
+                <div class="work-card">
+                    <img src="./img/外景街拍/TOTO8376.jpg" alt="外景街拍1" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">外景街拍 1</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/外景街拍/TOTO8408.jpg" alt="外景街拍2" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">外景街拍 2</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/外景街拍/TOTO8488.jpg" alt="外景街拍3" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">外景街拍 3</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/外景街拍/TOTO8529.jpg" alt="外景街拍4" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">外景街拍 4</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/外景街拍/TOTO8533.jpg" alt="外景街拍5" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">外景街拍 5</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/外景街拍/TOTO8551.jpg" alt="外景街拍6" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">外景街拍 6</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/外景街拍/TOTO8617.jpg" alt="外景街拍7" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">外景街拍 7</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/外景街拍/TOTO8666.jpg" alt="外景街拍8" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">外景街拍 8</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/外景街拍/TOTO8708.jpg" alt="外景街拍9" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">外景街拍 9</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/外景街拍/TOTO8723.jpg" alt="外景街拍10" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">外景街拍 10</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/外景街拍/TOTO8735.jpg" alt="外景街拍11" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">外景街拍 11</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/外景街拍/TOTO8785.jpg" alt="外景街拍12" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">外景街拍 12</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/外景街拍/TOTO8850.jpg" alt="外景街拍13" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">外景街拍 13</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/外景街拍/WechatIMG9030.jpeg" alt="外景街拍14" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">外景街拍 14</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/外景街拍/WechatIMG9031.jpeg" alt="外景街拍15" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">外景街拍 15</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/外景街拍/WechatIMG9032.jpeg" alt="外景街拍16" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">外景街拍 16</h4>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="./img/外景街拍/WechatIMG9036.jpeg" alt="外景街拍17" class="work-image">
+                    <div class="work-overlay">
+                        <h4 class="work-title">外景街拍 17</h4>
                     </div>
                 </div>
             </div>

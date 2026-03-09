@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>酒店现场 - DT Wedding Photo</title>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* 顶部导航栏 */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .nav-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-icon {
+            font-size: 20px;
+            color: #666;
+        }
+
+        /* 主内容区域 */
+        .main-content {
+            margin-top: 50px;
+            padding-bottom: 60px;
+        }
+
+        /* 主题标题 */
+        .theme-header {
+            background-color: #ffffff;
+            padding: 20px 15px;
+            margin-bottom: 10px;
+        }
+
+        .theme-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .theme-desc {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* 作品网格 */
+        .works-section {
+            background-color: #ffffff;
+            margin-bottom: 10px;
+            padding: 15px;
+        }
+
+        .works-grid {
+            column-count: 2;
+            column-gap: 8px;
+        }
+
+        .work-item {
+            break-inside: avoid;
+            margin-bottom: 8px;
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .work-img {
+            width: 100%;
+            display: block;
+        }
+
+        .work-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+            padding: 10px;
+            color: #ffffff;
+        }
+
+        .work-title {
+            font-size: 14px;
+            font-weight: bold;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <div class="top-nav">
+        <div class="nav-title">酒店现场</div>
+        <div class="nav-actions">
+            <a href="DTweddingphoto.html" class="nav-icon">←</a>
+        </div>
+    </div>
+
+    <!-- 主内容区域 -->
+    <div class="main-content">
+        <!-- 主题标题 -->
+        <!-- <div class="theme-header">
+            <div class="theme-title">酒店现场</div>
+            <div class="theme-desc">豪华婚礼现场，记录美好瞬间</div>
+        </div> -->
+
+        <!-- 作品展示 -->
+        <div class="works-section">
+            <div class="works-grid">
+                <div class="work-item">
+                    <img src="./img/酒店现场/TOTO0417.jpg" alt="酒店现场1" class="work-img">
+                    <div class="work-info">
+                        <div class="work-title">婚礼现场</div>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="./img/酒店现场/TOTO0495.jpg" alt="酒店现场2" class="work-img">
+                    <div class="work-info">
+                        <div class="work-title">新娘特写</div>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="./img/酒店现场/TOTO0522.jpg" alt="酒店现场3" class="work-img">
+                    <div class="work-info">
+                        <div class="work-title">新人合影</div>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="./img/酒店现场/TOTO0530.jpg" alt="酒店现场4" class="work-img">
+                    <div class="work-info">
+                        <div class="work-title">浪漫瞬间</div>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="./img/酒店现场/TOTO0559.jpg" alt="酒店现场5" class="work-img">
+                    <div class="work-info">
+                        <div class="work-title">亲友祝福</div>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="./img/酒店现场/TOTO0562.jpg" alt="酒店现场6" class="work-img">
+                    <div class="work-info">
+                        <div class="work-title">婚礼细节</div>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="./img/酒店现场/TOTO0573.jpg" alt="酒店现场7" class="work-img">
+                    <div class="work-info">
+                        <div class="work-title">幸福时刻</div>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="./img/酒店现场/TOTO0596.jpg" alt="酒店现场8" class="work-img">
+                    <div class="work-info">
+                        <div class="work-title">爱的誓言</div>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="./img/酒店现场/TOTO0608.jpg" alt="酒店现场9" class="work-img">
+                    <div class="work-info">
+                        <div class="work-title">婚礼布置</div>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="./img/酒店现场/TOTO0721.jpg" alt="酒店现场10" class="work-img">
+                    <div class="work-info">
+                        <div class="work-title">新人入场</div>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="./img/酒店现场/TOTO0792.jpg" alt="酒店现场11" class="work-img">
+                    <div class="work-info">
+                        <div class="work-title">交换戒指</div>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="./img/酒店现场/TOTO0808.jpg" alt="酒店现场12" class="work-img">
+                    <div class="work-info">
+                        <div class="work-title">举杯庆祝</div>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="./img/酒店现场/TOTO0857.jpg" alt="酒店现场13" class="work-img">
+                    <div class="work-info">
+                        <div class="work-title">婚礼蛋糕</div>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="./img/酒店现场/TOTO0880.jpg" alt="酒店现场14" class="work-img">
+                    <div class="work-info">
+                        <div class="work-title">亲友合影</div>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="./img/酒店现场/TOTO0895.jpg" alt="酒店现场15" class="work-img">
+                    <div class="work-info">
+                        <div class="work-title">新娘妆容</div>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="./img/酒店现场/_13A8559.jpg" alt="酒店现场16" class="work-img">
+                    <div class="work-info">
+                        <div class="work-title">婚礼现场</div>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="./img/酒店现场/_13A8575.jpg" alt="酒店现场17" class="work-img">
+                    <div class="work-info">
+                        <div class="work-title">新人互动</div>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="./img/酒店现场/_13A8613.jpg" alt="酒店现场18" class="work-img">
+                    <div class="work-info">
+                        <div class="work-title">幸福笑容</div>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="./img/酒店现场/_13A8622.jpg" alt="酒店现场19" class="work-img">
+                    <div class="work-info">
+                        <div class="work-title">浪漫时刻</div>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="./img/酒店现场/_13A8631.jpg" alt="酒店现场20" class="work-img">
+                    <div class="work-info">
+                        <div class="work-title">婚礼细节</div>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="./img/酒店现场/_13A8664.jpg" alt="酒店现场21" class="work-img">
+                    <div class="work-info">
+                        <div class="work-title">亲友祝福</div>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="./img/酒店现场/_13A8687.jpg" alt="酒店现场22" class="work-img">
+                    <div class="work-info">
+                        <div class="work-title">完美结局</div>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="./img/酒店现场/_13A8790.jpg" alt="酒店现场23" class="work-img">
+                    <div class="work-info">
+                        <div class="work-title">婚礼留念</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
